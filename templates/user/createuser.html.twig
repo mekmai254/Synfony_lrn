@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create a User!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+<h1>Crica nhos mai</h1>
+
+<form action="">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" placeholder="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" placeholder="Doe"><br><br>
+  <label for="age">age:</label><br>
+  <input type="number" id="age" name="age" placeholder="23"><br><br>
+  <label for="country">country:</label><br>
+  <input type="text" id="country" name="country" placeholder="portumai"><br><br>
+
+  <input type="submit" name ="submit" value="Submit">
+</form>
+{% endblock %}
