@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Tutorial;
+use Doctrine\ORM\Query\Expr\Func;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -32,8 +33,33 @@ class UserController extends AbstractController
 
         return new Response('Saved new product with id '.$user->getId());
     }
+
+    //----------------------get all users from db----------------------//
+    
+    /**
+     * @Route("/allUsers", name="allUsers")
+     */
+    public function getAllUsers():Response{
+        $users = $this->getDoctrine()
+            ->getRepository(Tutorial::class)
+            ->findAll();
+        $allusers=json_encode($users);
+            return new Response('Check out this great product: '.$allusers);
+    }
+
+    //show add user form
     public function novoUser()  
     {
-        return $this->render('user/createuser.html.twig');
+                //------------------get all users from db-----------------------//
+                $users = $this->getDoctrine()
+                ->getRepository(Tutorial::class)
+                ->findAll();
+                $allusers=json_encode($users);
+                //------------------get all users from db-----------------------//
+
+        return $this->render('user/createuser.html.twig',['users'=>$users]);
+    }
+    public function adicionarUser(Request $request){
+
     }
 }

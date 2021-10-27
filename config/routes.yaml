@@ -13,3 +13,7 @@ home:
 Add_user:
     path: /novoUser
     controller: App\Controller\UserController::novoUser
+##Add_user:
+  ##  path: /adicionarUser
+    ##controller: App\Controller\UserController::novoUser
+    ##methods:    POST|HEAD
